@@ -71,23 +71,63 @@ Each charging node becomes an on-chain asset using IoT integration and Solana sm
 - Launch Charge-to-Earn system
 - Begin DePINNest Africa Initiative
 
-## Deployment (For Developers)
+## Deployment & Usage
+
+This section outlines how to set up and interact with the **DePINNest** prototype using the Solana and Anchor frameworks.  
+*(Note: The commands below are placeholders and can be updated with actual paths and program IDs once the smart contracts are ready.)*
+
+### Prerequisites
+Before deployment, ensure you have the following installed:
+- [Solana CLI](https://docs.solana.com/cli/install-solana-cli) (v1.18 or higher)
+- [Anchor Framework](https://book.anchor-lang.com/chapter_2/installation.html)
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Setup Instructions
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/<yourusername>/DePINNest.git
 
-# Navigate to project folder
+# Navigate into the project directory
 cd DePINNest
 
 # Install dependencies
 npm install
+```
 
-# Build smart contracts
+### Build and Deploy Smart Contracts
+
+```bash
+# Build smart contracts using Anchor
 anchor build
 
-# Deploy to Solana Devnet
+# Deploy program to Solana Devnet
 anchor deploy
 
-# Run frontend
+# (Optional) View your deployed program ID
+solana address -k target/deploy/depinnest-keypair.json
+```
+
+### Run the Frontend Locally
+
+```bash
+# Start the Next.js frontend in development mode
 npm run dev
+```
+
+### Interacting with the Prototype
+
+1. Connect your Solana wallet (e.g., Phantom) to the Devnet network.  
+2. Load test tokens using:  
+   ```bash
+   solana airdrop 2
+   ```  
+3. Use the dashboard to simulate EV charging, view real-time IoT data, and send payments using Solana Pay.  
+4. Monitor on-chain logs and events via Solana Explorer.  
+
+### Notes
+- Replace placeholder program IDs and RPC URLs once your on-chain contract is finalized.  
+- Always test on **Devnet** before deploying to **Mainnet**.  
+- Consider integrating **Axelar GMP** in later versions for multi-chain data sync.
+- 
